@@ -1,9 +1,8 @@
 import math
 
-def search(number_search, numbers:list):
+def binary_search(number_search, numbers:list):
     numbers.sort()
     numbers2 = numbers
-    search = number_search
     index_size = len(numbers)-1
     count = 0
     i = 0
@@ -11,11 +10,11 @@ def search(number_search, numbers:list):
     while(not_found):
         count+=1
         i = math.floor(index_size/2)
-        if(search == numbers[i]):
-            print(f'search ----> found {search} at index {numbers2.index(search)} in {count} tries')
+        if(number_search == numbers[i]):
+            print(f'search ----> found {number_search} at index {numbers2.index(number_search)} in {count} tries')
             not_found =False
             break
-        elif(search > numbers[i]):
+        elif(number_search > numbers[i]):
             numbers = numbers[i+1:index_size+1]
             index_size = len(numbers)-1
         else:
@@ -41,7 +40,7 @@ def sequential_search(search_number, numbers:list):
 
 entered_number = int(input('enter number: '))
 numbers = list(range(1,101))
-search(entered_number, numbers)
+binary_search(entered_number, numbers)
 # for i in numbers:  
 #     search(i, numbers)
 
